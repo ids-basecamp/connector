@@ -13,27 +13,19 @@
  *
  */
 
-pluginManagement {
-    repositories {
-        maven {
-            val user = providers.gradleProperty("gitHubUserName")
-            val token = providers.gradleProperty("gitHubUserPassword")
-            url = uri("https://maven.pkg.github.com/ids-basecamp/gradle-plugins-fork")
-            credentials {
-                username = user.orNull
-                password = token.orNull
-            }
-        }
-        gradlePluginPortal()
-        mavenCentral()
-        mavenLocal()
-    }
-}
 
 dependencyResolutionManagement {
     repositories {
         val user = providers.gradleProperty("gitHubUserName")
         val token = providers.gradleProperty("gitHubUserPassword")
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/sovity/edc-extensions")
+            credentials {
+                username = user.orNull
+                password = token.orNull
+            }
+        }
         maven {
             url = uri("https://maven.pkg.github.com/ids-basecamp/gradle-plugins-fork")
             credentials {
@@ -43,6 +35,13 @@ dependencyResolutionManagement {
         }
         maven {
             url = uri("https://maven.pkg.github.com/ids-basecamp/edc-fork")
+            credentials {
+                username = user.orNull
+                password = token.orNull
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/ids-basecamp/edc-extensions-fork")
             credentials {
                 username = user.orNull
                 password = token.orNull

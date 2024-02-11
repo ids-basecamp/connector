@@ -30,8 +30,19 @@ dependencies {
     runtimeOnly(edc.oauth2.core)
     runtimeOnly(edc.vault.filesystem)
 
+    // Sovity EDC Extensions
+    implementation("de.sovity.edc.ext:ids-broker-client:${sovityExtensionVersion}")
+    implementation("de.sovity.edc.ext:ids-clearinghouse-client:${sovityExtensionVersion}")
+    implementation("de.sovity.edc.ext:postgres-flyway:${sovityExtensionVersion}")
+
     implementation("$groupId:management-api:0.0.1-milestone-8")
     implementation("$groupId:http:0.0.1-milestone-8")
+
+    // Data-plane
+    implementation("$groupId:data-plane-http:${edcVersion}")
+    implementation("$groupId:data-plane-framework:${edcVersion}")
+    implementation("$groupId:data-plane-core:${edcVersion}")
+    implementation("$groupId:data-plane-util:${edcVersion}")
 }
 
 application {

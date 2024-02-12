@@ -6,6 +6,63 @@ services:
     build:
       context: ../../
       dockerfile: ./launchers/connector-prod/Dockerfile
+
+    environment:
+      WEB_HTTP_PORT: 9191
+      WEB_HTTP_PATH: /api
+      WEB_HTTP_MANAGEMENT_PORT: 9192
+      WEB_HTTP_MANAGEMENT_PATH: /api/v1/management
+      WEB_HTTP_DATA_PORT: 9292
+      WEB_HTTP_DATA_PATH: /api/v1/data
+      WEB_HTTP_IDS_PORT: 9293
+      WEB_HTTP_IDS_PATH: /api/v1/ids
+      EDC_API_AUTH_KEY: password
+
+      EDC_DATASOURCE_DEFAULT_NAME: default
+      EDC_DATASOURCE_DEFAULT_URL=JDBC: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_DEFAULT_USER: postgres
+      EDC_DATASOURCE_DEFAULT_PASSWORD: password
+
+      EDC_DATASOURCE_DATAPLANEINSTANCE_NAME: dataplaneinstance
+      EDC_DATASOURCE_DATAPLANEINSTANCE_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_DATAPLANEINSTANCE_USER: postgres
+      EDC_DATASOURCE_DATAPLANEINSTANCE_PASSWORD: password
+
+      EDC_DATASOURCE_ASSET_NAME: asset
+      EDC_DATASOURCE_ASSET_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_ASSET_USER: postgres
+      EDC_DATASOURCE_ASSET_PASSWORD: password
+
+      EDC_DATASOURCE_CONTRACTDEFINITION_NAME: contractdefinition
+      EDC_DATASOURCE_CONTRACTDEFINITION_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_CONTRACTDEFINITION_USER: postgres
+      EDC_DATASOURCE_CONTRACTDEFINITION_PASSWORD: password
+
+      EDC_DATASOURCE_CONTRACTNEGOTIATION_NAME: contractnegotiation
+      EDC_DATASOURCE_CONTRACTNEGOTIATION_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_CONTRACTNEGOTIATION_USER: postgres
+      EDC_DATASOURCE_CONTRACTNEGOTIATION_PASSWORD: password
+
+      EDC_DATASOURCE_POLICY_NAME: policy
+      EDC_DATASOURCE_POLICY_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_POLICY_USER: postgres
+      EDC_DATASOURCE_POLICY_PASSWORD: password
+
+      EDC_DATASOURCE_TRANSFERPROCESS_NAME: transferprocess
+      EDC_DATASOURCE_TRANSFERPROCESS_URL: jdbc:postgresql://localhost:5432/connector
+      EDC_DATASOURCE_TRANSFERPROCESS_USER: postgres
+      EDC_DATASOURCE_TRANSFERPROCESS_PASSWORD: password
+
+      EDC_CLEARINGHOUSE_LOG_URL: http://localhost:7171
+      BROKER_CLIENT_EXTENSION_ENABLED: true
+      EDC_BROKER_BASE_URL: http://localhost:8181
+
+      EDC_OAUTH_CERTIFICATE_ALIAS: 1
+      EDC_OAUTH_PRIVATE_KEY_ALIAS: 1
+      EDC_OAUTH_CLIENT_ID: $CLIENT_ID
+      EDC_OAUTH_TOKEN_URL: http://localhost:4567/token
+      EDC_OAUTH_PROVIDER_JWKS_URL: http://localhost:4567/jwks.json
+      EDC_OAUTH_PROVIDER_AUDIENCE: idsc:IDS_CONNECTORS_ALL
     ports:
       - "9191:9191"
       - "9192:9192"

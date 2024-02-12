@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  connector:
+    image: basecamp/connector
+    build:
+      context: ../../
+      dockerfile: ./launchers/connector-prod/Dockerfile
+    ports:
+      - "9191:9191"
+      - "9192:9192"
+      - "9292:9292"
+      - "9293:9293"

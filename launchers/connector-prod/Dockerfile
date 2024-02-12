@@ -10,7 +10,4 @@ WORKDIR /app
 
 COPY --from=build /home/gradle/project/launchers/connector-prod/build/libs/connector-edc.jar /app
 
-ENV WEB_HTTP_PORT="8181"
-ENV WEB_HTTP_PATH="/api"
-
 ENTRYPOINT [ "sh", "-c", "exec java $ENV_JVM_ARGS -jar connector-edc.jar"]

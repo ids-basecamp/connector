@@ -21,6 +21,8 @@ val sovityEDCVersion: String by project
 
 dependencies {
     runtimeOnly(edc.bundles.connector)
+    runtimeOnly(edc.ids)
+    runtimeOnly(edc.ids.jsonld.serdes)
     runtimeOnly(edc.api.management)
 
     runtimeOnly(edc.bundles.dpf)
@@ -33,7 +35,7 @@ dependencies {
     runtimeOnly(edc.sql.contract.definition)
     runtimeOnly(edc.sql.transfer.process)
 
-    runtimeOnly(edc.iam.mock)
+    runtimeOnly(edc.oauth2.core)
     runtimeOnly(edc.config.filesystem)
     runtimeOnly(edc.vault.filesystem)
 

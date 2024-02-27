@@ -59,6 +59,10 @@ dependencyResolutionManagement {
             library("core-controlplane", edcGroup.get(), "control-plane-core").versionRef("edc")
             library("api-observability", edcGroup.get(), "api-observability").versionRef("edc")
 
+            library("spi-ids", edcGroup.get(), "ids-spi").versionRef("edc")
+            library("ids", edcGroup.get(), "ids").versionRef("edc")
+            library("ids-jsonld-serdes", edcGroup.get(), "ids-jsonld-serdes").versionRef("edc")
+
             library("api-management", edcGroup.get(), "management-api").versionRef("edc")
             library("config-filesystem", edcGroup.get(), "configuration-filesystem").versionRef("edc")
             library("oauth2-core", edcGroup.get(), "oauth2-core").versionRef("edc")

@@ -22,6 +22,8 @@ val sovityEDCVersion: String by project
 
 dependencies {
     runtimeOnly(edc.bundles.connector)
+    runtimeOnly(edc.ids)
+    runtimeOnly(edc.ids.jsonld.serdes)
     runtimeOnly(edc.api.management)
 
     runtimeOnly(edc.bundles.dpf)
